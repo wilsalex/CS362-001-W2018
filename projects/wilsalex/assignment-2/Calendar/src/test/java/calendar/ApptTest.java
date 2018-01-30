@@ -5,7 +5,9 @@ package calendar;
  */
 import org.junit.Test;
 
+
 import static org.junit.Assert.*;
+
 public class ApptTest {
     /**
      * Test that the gets methods work as expected.
@@ -39,8 +41,52 @@ public class ApptTest {
 	 }
 
 	 @Test
-	  public void test02()  throws Throwable  {
-		 
+	  public void testRecur(){
+		 Appt newAppt = new Appt(14,0,20,2,2017, "Dentist", "Go to dentist.");
+		 int myArray[] = {1,2,3};
+		 newAppt.setRecurrence(myArray,1,1,2);
+		 assertEquals(1,newAppt.getRecurBy());
+		 assertEquals(1,newAppt.getRecurIncrement());
+		 assertEquals(myArray, newAppt.getRecurDays());
+
+	 }
+
+	 @Test
+	public void testSetters(){
+		 Appt newAppt = new Appt(14,0,20,2,2017, "Dentist", "Go to dentist.");
+		 newAppt.setStartHour(7);
+		 assertEquals(7,newAppt.getStartHour());
+		 newAppt.setStartMinute(7);
+		 assertEquals(7,newAppt.getStartMinute());
+		 newAppt.setStartDay(7);
+		 assertEquals(7,newAppt.getStartDay());
+		 newAppt.setStartMonth(7);
+		 assertEquals(7,newAppt.getStartMonth());
+		 newAppt.setStartYear(2007);
+		 assertEquals(2007,newAppt.getStartYear());
+		newAppt.setTitle(null);
+		assertEquals("",newAppt.getTitle());
+		 newAppt.setDescription(null);
+		 assertEquals("",newAppt.getDescription());
+	 }
+
+	 @Test
+	public void testValid(){
+		 Appt newAppt = new Appt(24,0,20,2,2017, "Dentist", "Go to dentist.");
+		 assertFalse(newAppt.getValid());
+		 newAppt = new Appt(14,101,20,2,2017, "Dentist", "Go to dentist.");
+		 assertFalse(newAppt.getValid());
+		 newAppt = new Appt(14,0,60,2,2017, "Dentist", "Go to dentist.");
+		 assertFalse(newAppt.getValid());
+		 newAppt = new Appt(14,0,20,0,2017, "Dentist", "Go to dentist.");
+		 assertFalse(newAppt.getValid());
+		 newAppt = new Appt(-1,0,20,2,2017, "Dentist", "Go to dentist.");
+		 assertFalse(newAppt.getValid());
+		 newAppt = new Appt(14,-1,20,2,2017, "Dentist", "Go to dentist.");
+		 assertFalse(newAppt.getValid());
+		 newAppt = new Appt(14,0,0,2,2017, "Dentist", "Go to dentist.");
+		 assertFalse(newAppt.getValid());
+
 	 }
 //add more unit tests as you needed
 	
