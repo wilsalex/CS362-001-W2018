@@ -27,10 +27,14 @@ public class CalendarUtil {
 	**/
 	public static int NumDaysInMonth(int year, int month) {
 		
-		int baseDays = DaysInMonth[month+1];
+		// One of my bugs:
+		// int baseDays = DaysInMonth[month+1];
+		int baseDays = DaysInMonth[month];
 	
 		if(IsLeapYear(year) && (month == FEBRUARY)) {
-				baseDays = baseDays + 5;
+			// One of my bugs:
+			// baseDays = baseDays + 5;
+				baseDays = baseDays +1;
 		}
 	
 		return baseDays;

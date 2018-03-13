@@ -101,21 +101,21 @@ public class ApptTest {
 	 @Test
 	public void testValid(){
 	 	Appt newAppt = new Appt (22,0,20,2,2017, "Dentist", "Go to dentist.");
-	 	for(int i = 1; i < 24; i++) {
+	 	for(int i = 0; i < 24; i++) {
             newAppt = new Appt(i,0,20,2,2017, "Dentist", "Go to dentist.");
             assertTrue(newAppt.getValid());
         }
-        newAppt = new Appt(0,0,20,2,2017, "Dentist", "Go to dentist.");
+        newAppt = new Appt(-1,0,20,2,2017, "Dentist", "Go to dentist.");
 	 	assertFalse(newAppt.getValid());
         newAppt = new Appt(24,0,20,2,2017, "Dentist", "Go to dentist.");
 	 	assertFalse(newAppt.getValid());
-	 	for(int i = 0; i < 101; i++) {
+	 	for(int i = 0; i < 60; i++) {
 	 	    newAppt = new Appt(22,i,20,2,2017, "Dentist", "Go to dentist.");
 	 	    assertTrue(newAppt.getValid());
 	 	}
 	 	newAppt = new Appt(14,-1,20,2,2017, "Dentist", "Go to dentist.");
 	 	assertFalse(newAppt.getValid());
-	 	newAppt = new Appt(14,101,20,2,2017, "Dentist", "Go to dentist.");
+	 	newAppt = new Appt(14,60,20,2,2017, "Dentist", "Go to dentist.");
 	 	assertFalse(newAppt.getValid());
 	 	for(int i = 1; i < CalendarUtil.NumDaysInMonth(2017,3); i++) {
 	 	    newAppt = new Appt(22,0,i,3,2017, "Dentist", "Go to dentist.");
@@ -125,12 +125,10 @@ public class ApptTest {
 	 	assertFalse(newAppt.getValid());
 	 	newAppt = new Appt(22,0,(CalendarUtil.NumDaysInMonth(2017,3)+1),2,2017, "Dentist", "Go to dentist.");
 	 	assertFalse(newAppt.getValid());
-	 	for(int i = 1; i < 11; i++) {
+	 	for(int i = 1; i < 13; i++) {
 	 	    newAppt = new Appt(22,0,20,i,2017, "Dentist", "Go to dentist.");
 	 	    assertTrue(newAppt.getValid());
 	 	}
-	 	newAppt = new Appt(22,0,20,0,2017, "Dentist", "Go to dentist.");
-	 	assertFalse(newAppt.getValid());
 
 	 }
 

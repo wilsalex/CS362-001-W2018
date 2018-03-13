@@ -46,7 +46,9 @@ public class TimeTable {
 	        while (nextDay.before(lastDay)) {
 
 	            calDays.add(new CalDay(nextDay));
-	            nextDay.add(nextDay.DAY_OF_MONTH, 2);
+	            // One of my bugs:
+				// nextDay.add(nextDay.DAY_OF_MONTH, 2);
+				nextDay.add(nextDay.DAY_OF_MONTH, 1);
 	        }
 	        
 	        //Retrieve the appts - <appt> 
