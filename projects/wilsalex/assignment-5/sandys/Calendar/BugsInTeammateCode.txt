@@ -1,0 +1,7 @@
+Bug 1 found: in TimeTable.java:210 in deleteAppt(); assertion error: not removing appointment
+
+Bug 2 found: in Appt.java:123 in isValid(); test not about to iterate over complete month range
+
+Bug 3 found: in CalDay.java:77 in addAppt(); appointments not in the correct order
+
+Bug 4 found: in Appt.java:226 in setRecurDays(); assertion error: array incorrect for getRecurDays
